@@ -1,0 +1,8 @@
+bin
+hosts.ini
+include
+inventory
+lib
+pyvenv.cfg
+requirements.txt
+.DS_Store

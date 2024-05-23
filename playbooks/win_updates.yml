@@ -1,0 +1,21 @@
+---
+- hosts: win
+  gather_facts: no
+  tasks:
+    - name: Install all security critical and rollup updates
+      win_updates:
+        category_names:
+          - SecurityUpdates
+          - CriticalUpdates
+          - UpdateRollups
+          - DefinitionUpdates
+        reboot: false
+        state: "{{ 'installed' if 'install' in ansible_run_tags else 'searched' }}"
+      become: yes
+      become_method: runas
+      become_user: SYSTEM
+      register: update_results
+      tags:
+      - never
+      - install
+      - check
