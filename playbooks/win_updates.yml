@@ -1,5 +1,5 @@
 ---
-- hosts: win
+- hosts: all
   gather_facts: no
   tasks:
     - name: Install all security critical and rollup updates
